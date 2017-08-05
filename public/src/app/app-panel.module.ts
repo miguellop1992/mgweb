@@ -9,6 +9,7 @@ import { PanelProfileComponent } from './panel-profile/panel-profile.component';
 import { PanelPortfolioComponent } from './panel-portfolio/panel-portfolio.component';
 import { PanelBlogComponent } from './panel-blog/panel-blog.component';
 import { PanelSettingComponent } from './panel-setting/panel-setting.component';
+import { PanelBudgetComponent } from './panel-budget/panel-budget.component';
 
 var router = [
   {
@@ -16,6 +17,7 @@ var router = [
       { path: 'profile', component: PanelProfileComponent },
       { path: 'portfolio', component: PanelPortfolioComponent },
       { path: 'blog', component: PanelBlogComponent },
+      { path: 'budget', component: PanelBudgetComponent },
       { path: '', redirectTo: '/profile', pathMatch: 'full' }
 
     ]
@@ -36,7 +38,8 @@ var router = [
     PanelProfileComponent,
     PanelPortfolioComponent,
     PanelBlogComponent,
-    PanelSettingComponent
+    PanelSettingComponent,
+    PanelBudgetComponent
   ],
   bootstrap: [AppPanelComponent]
 
