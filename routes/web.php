@@ -11,6 +11,12 @@
 |
 */
 
+Route::get('/panel', function () {
+    return view('panel');
+});
+
 Route::get('/', function () {
     return view('index');
 });
+
+

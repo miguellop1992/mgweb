@@ -12,10 +12,10 @@
 </head>
 <body>
 <app-root>Loading...</app-root>
-<script type="text/javascript" src="dist/inline.bundle.js"></script>
-<script type="text/javascript" src="dist/polyfills.bundle.js"></script>
-<script type="text/javascript" src="dist/styles.bundle.js"></script>
-<script type="text/javascript" src="dist/vendor.bundle.js"></script>
-<script type="text/javascript" src="dist/main.bundle.js"></script>
+<script type="text/javascript" src="js/inline.bundle.js"></script>
+<script type="text/javascript" src="js/polyfills.bundle.js"></script>
+<script type="text/javascript" src="js/styles.bundle.js"></script>
+<script type="text/javascript" src="js/vendor.bundle.js"></script>
+<script type="text/javascript" src="js/main.bundle.js"></script>
 </body>
 </html>
