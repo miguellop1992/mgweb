@@ -15,11 +15,20 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->dateTime("birth")->nullable();
+            $table->string("degress")->nullable();
+            $table->double("price_hour")->nullable();
+            $table->string("label_type",128)->nullable();
+            $table->integer("status")->default(1);
             $table->rememberToken();
             $table->timestamps();
+
+            //Contrains
+            $table->foreign('label_type')->references('id')->on('multitypes');
         });
     }
 
