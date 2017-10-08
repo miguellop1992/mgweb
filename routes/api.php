@@ -17,7 +17,7 @@ Route::prefix('v1')->group(function () {
     Route::post("login","UserController@login");
 
     Route::middleware(['auth:api'])->group(function () {
-
+        Router::resource('UserController',['index','update','info']);
     });
 
 });

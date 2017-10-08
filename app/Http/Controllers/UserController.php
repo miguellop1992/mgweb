@@ -21,23 +21,27 @@ class UserController extends Controller
         //
     }
 
+
     /**
-     * Show the form for creating a new resource.
+     * Update the specified resource in storage.
      *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function update(Request $request, $id)
     {
         //
+        dd("hola");
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Display the specified resource.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function info()
     {
         //
     }
@@ -54,60 +58,16 @@ class UserController extends Controller
         $user = null;
         try {
 
-            if (! $token = JWTAuth::attempt($credentials)) {
-                throw  new MGException("La credencial es invalida",null,null,401);
+            if (!$token = JWTAuth::attempt($credentials)) {
+                throw  new MGException("La credencial es invalida", null, null, 401);
             }
 
-            $user = User::where("email",$credentials['email'])->first([DB::raw("CONCAT(firstname,lastname) as name"),"email"]);
-            $user['token']=$token;
+            $user = User::where("email", $credentials['email'])->first([DB::raw("CONCAT(firstname,' ',lastname) as name"), "email"]);
+            $user['token'] = $token;
         } catch (JWTException $e) {
-            throw  new MGException("No se pudo crear el token",null,null,500);
+            throw  new MGException("No se pudo crear el token", null, null, 500);
         }
         return response()->json($user);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
